@@ -1,0 +1,75 @@
+
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./loader.css');
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  text-align: center;
+  padding-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-style {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 30px;
+}
+
+.gallery-image {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.04);
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+}
+
+.gallery-link {
+  display: block;
+  text-decoration: none;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info-item span {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
