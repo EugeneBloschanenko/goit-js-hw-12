@@ -14,9 +14,8 @@ function hideLoader() {
   loader.style.display = 'none';  
 }
 
-export function fetchImages(query) {
-
-    showLoader();
+export async function fetchImages(query, page = 1) {
+  showLoader();
 
   const params = {
     key: API_KEY,
@@ -24,16 +23,17 @@ export function fetchImages(query) {
     image_type: "photo",
     orientation: "horizontal",
     safesearch: true,
+    page, 
+    per_page: 40, 
   };
 
-  return axios
-    .get(BASE_URL, { params })
-    .then((response) => response.data.hits)
-    .catch((error) => {
-        console.error("Помилка під час запиту:", error);
-      return [];
-    })
-    .finally(() => {
-      hideLoader();  
-    });  
+  try {
+    const response = await axios.get(BASE_URL, { params });
+    return response.data;
+  } catch (error) {
+    console.error("Помилка під час запиту:", error);
+    return { hits: [], totalHits: 0 }; 
+  } finally {
+    hideLoader();
+  }
 }
